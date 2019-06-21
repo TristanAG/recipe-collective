@@ -1,18 +1,25 @@
 import React from 'react'
 
+import Nav from './Nav'
+import GroceryList from './GroceryList'
+
+import './App.css'
+
 class Main extends React.Component {
   render() {
     return (
-      <section className="section">
-        <div className="container">
-          <h1 className="title">
-            recipe collective
-          </h1>
-          <p className="subtitle">
-            hey
-          </p>
-        </div>
-      </section>
+      <div>
+        <section className="nav">
+          <div className="container">
+            <Nav />
+          </div>
+        </section>
+        <section className="content-area">
+          <div className="container">
+            <GroceryList/>
+          </div>
+        </section>
+      </div>
     )
   }
 }
