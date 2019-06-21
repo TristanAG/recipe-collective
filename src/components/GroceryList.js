@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.css'
 
 class GroceryList extends React.Component {
   render() {

@@ -1,13 +1,15 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
+import '../css/App.css'
+
 import Nav from './Nav'
 import Home from './Home'
 import GroceryList from './GroceryList'
 import RecipeDatabase from './RecipeDatabase'
 import WeekPlanner from './WeekPlanner'
 
-import './App.css'
+
 
 class Main extends React.Component {
   render() {
