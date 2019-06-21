@@ -12,12 +12,12 @@ class Nav extends React.Component {
         </div>
         <div class="column">
           <div className="content">
-            <Link to="/grocery-list/"><h5 class="has-text-link">grocery list</h5></Link>
+            <Link to="/recipe-database/"><h5 class="has-text-link">recipe database</h5></Link>
           </div>
         </div>
         <div class="column">
           <div className="content">
-            <Link to="/recipe-database/"><h5 class="has-text-link">recipe database</h5></Link>
+            <Link to="/grocery-list/"><h5 class="has-text-link">grocery list</h5></Link>
           </div>
         </div>
         <div class="column">
