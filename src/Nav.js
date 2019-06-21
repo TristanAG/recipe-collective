@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 
 class Nav extends React.Component {
   render() {
@@ -6,25 +7,25 @@ class Nav extends React.Component {
       <div class="columns">
         <div class="column is-half logo">
           <div className="content">
-            <h3 class="has-text-grey">rcpclctv</h3>
+            <Link to="/"><h3 class="has-text-grey">rcpclctv</h3></Link>
           </div>
         </div>
         <div class="column">
           <div className="content">
-            <h5 class="has-text-link">grocery list</h5>
+            <Link to="/grocery-list/"><h5 class="has-text-link">grocery list</h5></Link>
           </div>
         </div>
         <div class="column">
           <div className="content">
-            <h5 class="has-text-link">recipe db</h5>
+            <Link to="/recipe-database/"><h5 class="has-text-link">recipe database</h5></Link>
           </div>
         </div>
         <div class="column">
           <div className="content">
-            <h5 class="has-text-link">week planner</h5>
+            <Link to="/week-planner/"><h5 class="has-text-link">week planner</h5></Link>
           </div>
         </div>
-      </div>    
+      </div>
     )
   }
 }
