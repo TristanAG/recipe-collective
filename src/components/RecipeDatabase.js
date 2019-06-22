@@ -6,6 +6,8 @@ class RecipeDatabase extends React.Component {
   //i want recipe to be clicked upon, and when you click it it will render into the main area... the recipe list can be on the sidebar
   //so it shall be two columns
 
+  //now it needs to have a recipe component, but first it can just render the 
+
   constructor() {
     super()
     this.state = {
