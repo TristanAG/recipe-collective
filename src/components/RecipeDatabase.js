@@ -6,23 +6,34 @@ class RecipeDatabase extends React.Component {
   //i want recipe to be clicked upon, and when you click it it will render into the main area... the recipe list can be on the sidebar
   //so it shall be two columns
 
-  //now it needs to have a recipe component, but first it can just render the 
+  //now it needs to have a recipe component, but first it can just render the
 
   constructor() {
     super()
     this.state = {
       recipes: [
         {
-          name: 'spaghetti'
+          name: 'spaghetti',
+          ingredients: [
+            'noodles',
+            'past sauce',
+            'parmesan cheese'
+          ]
         },
         {
-          name: 'vegetable stir-fry'
+          name: 'vegetable stir-fry',
+          ingredients: ['a','b','c']
         },
         {
-          name: 'eggs + toast'
+          name: 'eggs + toast',
+          ingredients: ['a','b','c']
         }
       ]
     }
+  }
+
+  handleRecipeClick(e) {
+    console.log(e.target)
   }
 
   render() {
@@ -41,8 +52,10 @@ class RecipeDatabase extends React.Component {
                   <div className="content">
                     <div className="page-content">
                       {this.state.recipes.map((recipe) => (
-                        <div class="recipe-link">
-                          <p class="has-text-grey">{recipe.name}</p>
+                        <div>
+                          <div class="recipe-link">
+                            <p class="has-text-grey" onClick={this.handleRecipeClick} name="hambone">{recipe.name}</p>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -50,7 +63,7 @@ class RecipeDatabase extends React.Component {
                 </div>
                 <div className="column">
                   <div className="content">
-                    <i class="has-text-grey-light">recipe content</i>
+                    <i class="has-text-grey-light recipe-link">recipe content</i>
                   </div>
                 </div>
               </div>

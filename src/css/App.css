@@ -5,3 +5,8 @@
 .logo {
   padding-left: 14px;
 }
+
+.recipe-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
