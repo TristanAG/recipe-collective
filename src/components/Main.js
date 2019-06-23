@@ -107,20 +107,20 @@ class Main extends React.Component {
         <Router>
           <section className="nav">
             <div className="container">
+              <section className="flash-area">
+                {this.state.showFlash &&
+                  <div className="notification is-success">
+                    <button className="delete" onClick={this.hideNotification}></button>
+                    <p>{this.state.savedRecipes[this.state.savedRecipes.length - 1].name} was saved</p>
+                  </div>
+                }
+              </section>
               <Nav />
               <ul>
               {this.state.savedRecipes.map((recipe) => (
                 <li>{recipe.name}</li>
               ))}
               </ul>
-              {/* <h4>{this.state.savedRecipes.length}</h4> */}
-              {this.state.showFlash &&
-                <div class="notification is-success">
-                  <button class="delete" onClick={this.hideNotification}></button>
-                  <p>{this.state.savedRecipes[this.state.savedRecipes.length - 1].name} was saved</p>
-
-                </div>
-              }
             </div>
           </section>
           <section className="content-area">
