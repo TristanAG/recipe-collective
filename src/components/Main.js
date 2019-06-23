@@ -116,11 +116,11 @@ class Main extends React.Component {
                 }
               </section>
               <Nav />
-              <ul>
+              {/* <ul>
               {this.state.savedRecipes.map((recipe) => (
                 <li>{recipe.name}</li>
               ))}
-              </ul>
+              </ul> */}
             </div>
           </section>
           <section className="content-area">
@@ -134,9 +134,8 @@ class Main extends React.Component {
                   selectedRecipe={this.state.selectedRecipe}
                 />}
               />
-              {/* <Route path="/recipe-database/" render={(props) => <RecipeDatabase recipes={this.state.recipes} saveRecipe={this.saveRecipe}/>} /> */}
               <Route path="/week-planner/" component={WeekPlanner} />
-              <Route path="/my-recipes/" component={MyRecipes} />
+              <Route path="/my-recipes/" component={(props) => <MyRecipes savedRecipes={this.state.savedRecipes}/>}/>
             </div>
           </section>
         </Router>
