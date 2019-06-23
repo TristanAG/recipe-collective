@@ -14,3 +14,7 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.notification {
+  margin-bottom: 24px;
+}

@@ -1,25 +1,15 @@
 import React from 'react'
 
 class RecipeDatabase extends React.Component {
-
-  //so everytime you clikc save, once the data gets passed up, i think that it fully rerenders the component the the default state again.
-  //this is an issue... i want you to be able to stay on the same recipe after you've saved.... how can i do this?
-  //one idea is that i pass the selectedRecipe prop in... that seems weird though, because that shouldn't be an issue
-
   constructor() {
     super()
     this.handleSaveRecipe = this.handleSaveRecipe.bind(this)
     console.log('thwarpp')
-    //ok, so this is the issue... i need to somehow pass in the selected data so it doesn't default... i can't really prevent a rerender here, so that is i guess
-    //a bit of a flaw on how this is setup so far...
-    //if you think about it, posting and stuff can be done from the actual component level, rather than the main level... this gives me a way of
-    //keeping track of all state like a local database in react state... but you have to deal with the rerenders
 
-    //that's ok though, i think.. because i can just handle this by passing a piece of data in handleSaveRecipe.
-      //because it's going to rerender, i think i just need to store the selectedRecipe and pass it up, then when it comes down i render it as props!
-      //because it's going to rerender, i think i just need to store the selectedRecipe and pass it up, then when it comes down i render it as props!
-      //because it's going to rerender, i think i just need to store the selectedRecipe and pass it up, then when it comes down i render it as props!
-      //because it's going to rerender, i think i just need to store the selectedRecipe and pass it up, then when it comes down i render it as props!
+    //ok but no it cannot be a prop in order perserve the integrity of the component... the prop will only set the state of this component
+    //that way all behavior can remain... i think it may cause a rerender, but that is of no issue at this time...
+    //ok i got that and there's no rerender issue... but i'm doing it with a default, now i need to make sure that im doing it with the actual object of the selected,
+      //it means i gotta pass it up first when i handleSaveRecipe
 
     this.state = {
       selectedRecipe: {
@@ -33,8 +23,14 @@ class RecipeDatabase extends React.Component {
     }
   }
 
+  componentDidMount() {
+    console.log(this.props.selectedRecipe)
+    this.setState({
+      selectedRecipe: this.props.selectedRecipe
+    })
+  }
+
   handleRecipeClick(e, recipe) {
-    alert('in handle recipe click')
     for (var i = 0; i < this.props.recipes.length; i++) {
       if (this.props.recipes[i].name === recipe) {
         this.setState({ selectedRecipe: this.props.recipes[i]})
@@ -42,9 +38,17 @@ class RecipeDatabase extends React.Component {
     }
   }
 
-  handleSaveRecipe(e) {
-    e.preventDefault()
-    this.props.saveRecipe(this.state.selectedRecipe.name)
+  handleSaveRecipe() {
+
+    //in here, pass up a selectedRecipe object
+    //in here, pass up a selectedRecipe object
+    //in here, pass up a selectedRecipe object
+    //in here, pass up a selectedRecipe object
+      //perhaps you can bundle it in since you are only extracting the name...
+        //how could this be dones
+
+    // e.preventDefault()
+    this.props.saveRecipe(this.state.selectedRecipe)
   }
 
   render() {
@@ -63,7 +67,7 @@ class RecipeDatabase extends React.Component {
                   <div className="content">
                     <div className="page-content">
                       {this.props.recipes.map((recipe) => (
-                        <div>
+                        <div key={recipe.name}>
                           <div className="recipe-link">
                             <p className="has-text-grey" onClick={(e) => this.handleRecipeClick(e, recipe.name)}>{recipe.name}</p>
                           </div>
@@ -76,11 +80,14 @@ class RecipeDatabase extends React.Component {
                   <div className="content">
                     <h3 className="has-text-primary">{this.state.selectedRecipe.name}</h3>
                     <ul>
-                      <li>{this.state.selectedRecipe.ingredients[0]}</li>
+                      {this.state.selectedRecipe.ingredients.map((ingredient) => (
+                          <li key={ingredient}>{ingredient}</li>
+                      ))}
+                      {/* <li>{this.state.selectedRecipe.ingredients[0]}</li>
                       <li>{this.state.selectedRecipe.ingredients[1]}</li>
-                      <li>{this.state.selectedRecipe.ingredients[2]}</li>
+                      <li>{this.state.selectedRecipe.ingredients[2]}</li> */}
                     </ul>
-                    <div className="button is-primary" onClick={(e) => this.handleSaveRecipe(e, this.state.selectedRecipe.name)}>Save</div>
+                    <div className="button is-empty" onClick={() => this.handleSaveRecipe(this.state.selectedRecipe.name)}>Save</div>
                   </div>
                 </div>
               </div>
