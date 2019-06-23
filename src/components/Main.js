@@ -108,16 +108,17 @@ class Main extends React.Component {
           <section className="nav">
             <div className="container">
               <Nav />
-              <h4>{this.state.savedRecipes.length}</h4>
+              <ul>
+              {this.state.savedRecipes.map((recipe) => (
+                <li>{recipe.name}</li>
+              ))}
+              </ul>
+              {/* <h4>{this.state.savedRecipes.length}</h4> */}
               {this.state.showFlash &&
                 <div class="notification is-success">
                   <button class="delete" onClick={this.hideNotification}></button>
-                  <p>{this.state.savedRecipes.name} was saved</p>
-                  <ul>
-                  {this.state.savedRecipes.map((recipe) => (
-                    <li>{recipe.name}</li>
-                  ))}
-                  </ul>
+                  <p>{this.state.savedRecipes[this.state.savedRecipes.length - 1].name} was saved</p>
+
                 </div>
               }
             </div>
