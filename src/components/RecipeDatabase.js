@@ -8,32 +8,42 @@ class RecipeDatabase extends React.Component {
 
   //now it needs to have a recipe component, but first it can just render the
 
+  //all this needs to do is grab the reference of what is selected, and feed that into the activeRecipe or whatever
+  //and depending on what's in the activeRecipe, that's the content that will load / render / be able to be worked on
+
   constructor() {
     super()
+    this.handleSaveRecipe = this.handleSaveRecipe.bind(this)
     this.state = {
-      recipes: [
-        {
-          name: 'spaghetti',
-          ingredients: [
-            'noodles',
-            'past sauce',
-            'parmesan cheese'
-          ]
-        },
-        {
-          name: 'vegetable stir-fry',
-          ingredients: ['a','b','c']
-        },
-        {
-          name: 'eggs + toast',
-          ingredients: ['a','b','c']
-        }
-      ]
+      selectedRecipe: {
+        name: 'peanut butter and jelly sandwhich',
+        ingredients: [
+          'peanut butter',
+          'jelly',
+          'bread'
+        ]
+      }
     }
   }
 
-  handleRecipeClick(e) {
-    console.log(e.target)
+  handleRecipeClick(e, recipe) {
+    alert('in handle recipe click')
+    for (var i = 0; i < this.props.recipes.length; i++) {
+      if (this.props.recipes[i].name === recipe) {
+        this.setState({ selectedRecipe: this.props.recipes[i]})
+      }
+    }
+  }
+
+  handleSaveRecipe() {
+    alert('in handle save recipe')
+    //send the recipe up to the databse.
+    //ok... so that means it needs to be shot up to a higher level
+    //that means the true state of the recipe will be passed down from the app component. in this way, you can have it globally accessible on all pages
+    //ok so i got that set globally now
+    // console.log(this.props)
+    this.props.saveRecipe(this.state.selectedRecipe.name)
+    //GOT IT!
   }
 
   render() {
@@ -43,18 +53,18 @@ class RecipeDatabase extends React.Component {
           <div className="container">
             <div className="content">
               <div className="page-title">
-                <h3 class="has-text-grey-light">recipe database</h3>
+                <h3 className="has-text-grey-light">recipe database</h3>
               </div>
             </div>
             <div className="container">
               <div className="columns">
-                <div className="column is-two-fifths">
+                <div className="column is-one-third">
                   <div className="content">
                     <div className="page-content">
-                      {this.state.recipes.map((recipe) => (
+                      {this.props.recipes.map((recipe) => (
                         <div>
-                          <div class="recipe-link">
-                            <p class="has-text-grey" onClick={this.handleRecipeClick} name="hambone">{recipe.name}</p>
+                          <div className="recipe-link">
+                            <p className="has-text-grey" onClick={(e) => this.handleRecipeClick(e, recipe.name)}>{recipe.name}</p>
                           </div>
                         </div>
                       ))}
@@ -63,7 +73,13 @@ class RecipeDatabase extends React.Component {
                 </div>
                 <div className="column">
                   <div className="content">
-                    <i class="has-text-grey-light recipe-link">recipe content</i>
+                    <h3 className="has-text-primary">{this.state.selectedRecipe.name}</h3>
+                    <ul>
+                      <li>{this.state.selectedRecipe.ingredients[0]}</li>
+                      <li>{this.state.selectedRecipe.ingredients[1]}</li>
+                      <li>{this.state.selectedRecipe.ingredients[2]}</li>
+                    </ul>
+                    <a className="button is-primary" onClick={() => this.handleSaveRecipe(this.state.selectedRecipe.name)}>Save</a>
                   </div>
                 </div>
               </div>

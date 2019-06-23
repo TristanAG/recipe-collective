@@ -6,7 +6,7 @@ class GroceryList extends React.Component {
       <section className="grocery-list">
         <div className="container">
           <div className="content">
-            <h3 class="has-text-grey-light">grocery list</h3>
+            <h3 className="has-text-grey-light">grocery list</h3>
           </div>
         </div>
       </section>

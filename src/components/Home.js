@@ -7,7 +7,7 @@ class Home extends React.Component {
         <section className="Home">
           <div className="container">
             <div className="content">
-              <h3 class="has-text-grey-light">welcome to recipe collective</h3>
+              <h3 className="has-text-grey-light">welcome to recipe collective</h3>
             </div>
           </div>
         </section>

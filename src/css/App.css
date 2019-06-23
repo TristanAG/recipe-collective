@@ -2,6 +2,10 @@
   margin-top: 24px;
 }
 
+.nav-link {
+  text-decoration: underline;
+}
+
 .logo {
   padding-left: 14px;
 }
