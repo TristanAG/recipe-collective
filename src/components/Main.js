@@ -45,12 +45,9 @@ class Main extends React.Component {
   }
 
   saveRecipe(recipe) {
-    // alert('smoove')
-    alert(recipe)
 
-    // const savedRecipes = this.state.savedRecipes
+    //need to make it like an array here.. so i can keep a tab of all selected recipes
 
-    // hmm, cannot set state here... seems like im creating an infinite loop
     this.setState({
       savedRecipes: recipe
     })

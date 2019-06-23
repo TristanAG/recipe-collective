@@ -2,18 +2,25 @@ import React from 'react'
 
 class RecipeDatabase extends React.Component {
 
-  //can click into recipe.... how we gonna do that?
-  //i want recipe to be clicked upon, and when you click it it will render into the main area... the recipe list can be on the sidebar
-  //so it shall be two columns
-
-  //now it needs to have a recipe component, but first it can just render the
-
-  //all this needs to do is grab the reference of what is selected, and feed that into the activeRecipe or whatever
-  //and depending on what's in the activeRecipe, that's the content that will load / render / be able to be worked on
+  //so everytime you clikc save, once the data gets passed up, i think that it fully rerenders the component the the default state again.
+  //this is an issue... i want you to be able to stay on the same recipe after you've saved.... how can i do this?
+  //one idea is that i pass the selectedRecipe prop in... that seems weird though, because that shouldn't be an issue
 
   constructor() {
     super()
     this.handleSaveRecipe = this.handleSaveRecipe.bind(this)
+    console.log('thwarpp')
+    //ok, so this is the issue... i need to somehow pass in the selected data so it doesn't default... i can't really prevent a rerender here, so that is i guess
+    //a bit of a flaw on how this is setup so far...
+    //if you think about it, posting and stuff can be done from the actual component level, rather than the main level... this gives me a way of
+    //keeping track of all state like a local database in react state... but you have to deal with the rerenders
+
+    //that's ok though, i think.. because i can just handle this by passing a piece of data in handleSaveRecipe.
+      //because it's going to rerender, i think i just need to store the selectedRecipe and pass it up, then when it comes down i render it as props!
+      //because it's going to rerender, i think i just need to store the selectedRecipe and pass it up, then when it comes down i render it as props!
+      //because it's going to rerender, i think i just need to store the selectedRecipe and pass it up, then when it comes down i render it as props!
+      //because it's going to rerender, i think i just need to store the selectedRecipe and pass it up, then when it comes down i render it as props!
+
     this.state = {
       selectedRecipe: {
         name: 'peanut butter and jelly sandwhich',
@@ -35,15 +42,9 @@ class RecipeDatabase extends React.Component {
     }
   }
 
-  handleSaveRecipe() {
-    alert('in handle save recipe')
-    //send the recipe up to the databse.
-    //ok... so that means it needs to be shot up to a higher level
-    //that means the true state of the recipe will be passed down from the app component. in this way, you can have it globally accessible on all pages
-    //ok so i got that set globally now
-    // console.log(this.props)
+  handleSaveRecipe(e) {
+    e.preventDefault()
     this.props.saveRecipe(this.state.selectedRecipe.name)
-    //GOT IT!
   }
 
   render() {
@@ -79,7 +80,7 @@ class RecipeDatabase extends React.Component {
                       <li>{this.state.selectedRecipe.ingredients[1]}</li>
                       <li>{this.state.selectedRecipe.ingredients[2]}</li>
                     </ul>
-                    <a className="button is-primary" onClick={() => this.handleSaveRecipe(this.state.selectedRecipe.name)}>Save</a>
+                    <div className="button is-primary" onClick={(e) => this.handleSaveRecipe(e, this.state.selectedRecipe.name)}>Save</div>
                   </div>
                 </div>
               </div>
