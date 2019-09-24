@@ -19,3 +19,7 @@
 .notification {
   margin-bottom: 24px;
 }
+
+.content h3 {
+  font-weight: 300;
+}
