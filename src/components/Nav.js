@@ -10,9 +10,9 @@ class Nav extends React.Component {
             <Link to="/"><h3 className="has-text-grey">rcpclctv</h3></Link>
           </div>
         </div>
-        <div className="column">
+        {/* <div className="column">
           <div className="content">
-            <Link to="/recipe-database/" className="nav-link"><h5 className="has-text-link">recipe db</h5></Link>
+            <Link to="/recipe-database/" className="nav-link"><h5 className="has-text-grey-dark">recipe db</h5></Link>
           </div>
         </div>
         <div className="column">
@@ -28,6 +28,11 @@ class Nav extends React.Component {
         <div className="column">
           <div className="content">
             <Link to="/grocery-list/" className="nav-link"><h5 className="has-text-grey-dark">grocery list</h5></Link>
+          </div>
+        </div> */}
+        <div className="column">
+          <div className="content">
+            <Link to="/login/" className="nav-link"><h5 className="has-text-success">login</h5></Link>
           </div>
         </div>
       </div>

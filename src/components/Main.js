@@ -9,6 +9,7 @@ import GroceryList from './GroceryList'
 import RecipeDatabase from './RecipeDatabase'
 import WeekPlanner from './WeekPlanner'
 import MyRecipes from './MyRecipes'
+import Login from './auth/Login'
 
 function Main() {
   return (
@@ -34,6 +35,7 @@ function Main() {
             <Route path="/recipe-database/" component={RecipeDatabase}/>
             <Route path="/week-planner/" component={WeekPlanner} />
             <Route path="/my-recipes/" component={MyRecipes} />
+            <Route path="/login/" component={Login} />
           </div>
         </section>
       </Router>
