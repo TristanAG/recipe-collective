@@ -25,6 +25,9 @@ class Main extends React.Component {
 
 
     //so 1 => make sure that the savedRecipe list is an array of objects, that way can determine if recipeIsSaved
+        //lets confirm that the list is forming correctly as objects
+
+
     //2 => render the button as filled if recipeIsSaved
 
   constructor() {
@@ -59,7 +62,6 @@ class Main extends React.Component {
           saved: false
         }
       ],
-      // savedRecipes: 'Spaghetti',
       savedRecipes: [
         {
           name: 'potatoe hash',
@@ -77,15 +79,11 @@ class Main extends React.Component {
 
   saveRecipe(recipe) {
 
-    //need to make it like an array here.. so i can keep a tab of all selected recipes
+    //i think you can more accurately express how you are saving the saved recipe so you can be sure to attach that true variable
+    //if you attach that and make it true here, then you will... well, hmm, what will that accomplish in any greater detail? i ahve a feeling it could be good
     const savedRecipes = this.state.savedRecipes
     savedRecipes.push(recipe)
-
-    // console.log(savedRecipesTemp)
-    //something broken about saving this array into state, hmm......
-
     this.setState({
-      // savedRecipes: recipe.name,
       savedRecipes,
       selectedRecipe: recipe,
       showFlash: true
@@ -116,11 +114,6 @@ class Main extends React.Component {
                 }
               </section>
               <Nav />
-              {/* <ul>
-              {this.state.savedRecipes.map((recipe) => (
-                <li>{recipe.name}</li>
-              ))}
-              </ul> */}
             </div>
           </section>
           <section className="content-area">
@@ -132,6 +125,7 @@ class Main extends React.Component {
                   recipes={this.state.recipes}
                   saveRecipe={this.saveRecipe}
                   selectedRecipe={this.state.selectedRecipe}
+                  savedRecipes={this.state.savedRecipes}
                 />}
               />
               <Route path="/week-planner/" component={WeekPlanner} />

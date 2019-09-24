@@ -19,6 +19,11 @@ class MyRecipes extends React.Component {
               {this.props.savedRecipes.map((recipe) => (
                 <div>
                   <h4 className="has-text-grey">{recipe.name}</h4>
+                  <ul>
+                  {recipe.ingredients.map((ingredient) => (
+                    <li>{ingredient}</li>
+                  ))}
+                  </ul>
                 </div>
               ))
 
