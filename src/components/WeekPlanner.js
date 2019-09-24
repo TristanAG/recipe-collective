@@ -1,6 +1,6 @@
 import React from 'react'
 
-function WeekPlanner() {
+function weekPlanner() {
   return (
     <section className="Home">
       <div className="container">
@@ -12,4 +12,4 @@ function WeekPlanner() {
   )
 }
 
-export default WeekPlanner
+export default weekPlanner

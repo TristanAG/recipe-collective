@@ -1,6 +1,6 @@
 import React from 'react'
 
-function GroceryList() {
+function groceryList() {
   return (
     <section className="grocery-list">
       <div className="container">
@@ -12,4 +12,4 @@ function GroceryList() {
   )
 }
 
-export default GroceryList
+export default groceryList
