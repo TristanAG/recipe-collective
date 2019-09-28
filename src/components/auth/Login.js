@@ -1,6 +1,7 @@
 import React from 'react'
 import useFormValidation from './useFormValidation'
 import validateLogin from './validateLogin'
+import firebase from '../../firebase'
 
 const INITIAL_STATE = {
   name: "",
@@ -9,14 +10,35 @@ const INITIAL_STATE = {
 }
 
 function Login(props) {
-  const { handleChange, handleBlur, handleSubmit, values, errors, isSubmitting } = useFormValidation(
-    INITIAL_STATE,
-    validateLogin
-  )
+  const {
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    values,
+    errors,
+    isSubmitting
+  } = useFormValidation(INITIAL_STATE, validateLogin, authenticateUser)
+
   //login is the state variable, and setLogin is the setter
   //setLogin gets called when the button is clicked below
   //and it looks like when you call a state function, you have access to the previous state on that piece of state (login)
   const [login, setLogin] = React.useState(true)
+  const [firebaseError, setFirebaseError] = React.useState(null)
+
+  async function authenticateUser() {
+    const { name, email, password } = values
+
+    try {
+      login
+        ? await firebase.login(email, password)
+        : await firebase.register(name, email, password)
+      props.history.push('/')
+    } catch (err) {
+      console.error('Authentication Error', err)
+      setFirebaseError(err.message)
+    }
+
+  }
 
   return (
     <section className="login">
@@ -75,6 +97,7 @@ function Login(props) {
                     </div>
                   </div>
                   {errors.password && <p className="has-text-danger">{errors.password}</p>}
+                  {firebaseError && <p className="has-text-danger">{firebaseError}</p>}
                   <br />
                   <button
                     className="button is-primary"
