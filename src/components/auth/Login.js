@@ -2,6 +2,7 @@ import React from 'react'
 import useFormValidation from './useFormValidation'
 import validateLogin from './validateLogin'
 import firebase from '../../firebase'
+import { Link } from 'react-router-dom'
 
 const INITIAL_STATE = {
   name: "",
@@ -117,6 +118,7 @@ function Login(props) {
                       {login ? "need to create an account?" : "already have an account?"}
                   </button>
                 </form>
+                <Link className="forgot-password" to="/forgot">forgot password?</Link>
               </div>
             </div>
           </div>
