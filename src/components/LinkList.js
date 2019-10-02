@@ -1,8 +1,9 @@
 import React from 'react'
+import CreateLink from './CreateLink'
 
 function LinkList(props) {
 
-  return <div>LinkList</div>
+  return <div><CreateLink /></div>
 }
 
 export default LinkList
