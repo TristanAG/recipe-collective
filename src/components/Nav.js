@@ -9,7 +9,7 @@ function Nav() {
     <div className="columns">
       <div className="column is-one-third logo">
         <div className="content">
-          <Link to="/"><h3 className="has-text-grey">🌱&nbsp; r e c i p e &nbsp; c o l l e c t i v e </h3></Link>
+          <Link to="/"><h3 className="has-text-grey">💵 cashflow.cool</h3></Link>
         </div>
       </div>
       {/* <div className="column">
