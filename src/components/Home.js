@@ -4,16 +4,19 @@ import LinkList from './LinkList'
 class Home extends React.Component {
   render() {
     return (
-      <div>
-        <section className="Home">
-          <div className="container">
-            <div className="content">
-              <h3 className="has-text-grey-light">welcome to recipe collective</h3>
-              <LinkList />
+      <div className="Home section">
+        <div className="container">
+            <div className="columns">
+              <div className="column">
+                <div className="content">
+                  <h3 className="has-text-grey-light">welcome to cashflow.cool</h3>
+                  {/* <LinkList /> */}
+                </div>
+              </div>
             </div>
           </div>
-        </section>
       </div>
+
     )
   }
 }

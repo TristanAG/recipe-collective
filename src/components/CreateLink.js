@@ -15,8 +15,12 @@ function CreateLink(props) {
   }
 
   return (
+    <div className="columns">
+      <div className="column is-half">
     <div className="content">
       <form onSubmit={handleSubmit}>
+        <div className="field">
+          <div className="control">
         <input
           name="description"
           onChange={handleChange}
@@ -24,8 +28,11 @@ function CreateLink(props) {
           placeholder="A description for your link"
           autoComplete="off"
           type="text"
-          className={errors.description && 'has-text-danger'}
+          className="input"
+          // className={errors.description && 'has-text-danger input'}
         />
+      </div>
+        </div>
         {errors.description && <p className="has-text-danger">{errors.description}</p>}
         <input
           name="url"
@@ -37,9 +44,31 @@ function CreateLink(props) {
           className={errors.url && 'has-text-danger'}
         />
         {errors.url && <p className="has-text-danger">{errors.url}</p>}
+
+        <div className="field">
+          <div className="control">
+            <div className="select">
+              <select>
+                <option>Category</option>
+                <option>🥕 Groceries</option>
+                <option>🥡 Eating Out</option>
+                <option>🍻 Drinks</option>
+                <option>🎸 Music</option>
+                <option>🎮 Videogames</option>
+                <option>⚕️ Medical</option>
+                <option>🐈 Animals</option>
+
+
+              </select>
+            </div>
+          </div>
+        </div>
+
         <button className="button" type="submit">submit</button>
       </form>
     </div>
+  </div>
+  </div>
   )
 }
 

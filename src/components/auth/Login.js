@@ -44,7 +44,7 @@ function Login(props) {
   return (
     <section className="login">
       <div className="container">
-        <div className="columns">
+        <div className="columns is-mobile">
           <div className="column is-two-thirds">
             <div className="content">
               <h3 className="has-text-grey-light">{login ? "login" : "create account"}</h3>

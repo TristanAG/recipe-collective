@@ -1,10 +1,14 @@
 .nav {
-  margin-top: 24px;
+  /* margin-top: 24px; */
 }
 
 .nav-link {
   /* text-decoration: underline; */
 
+}
+
+.section {
+  padding: 1em;
 }
 
 .logo {
@@ -16,9 +20,9 @@
   cursor: pointer;
 }
 
-.notification {
+/* .notification {
   margin-bottom: 24px;
-}
+} */
 
 .content h3 {
   font-weight: 300;
