@@ -42,9 +42,9 @@ function Login(props) {
   }
 
   return (
-    <section className="login">
+    <section className="login section">
       <div className="container">
-        <div className="columns is-mobile">
+        <div className="columns">
           <div className="column is-two-thirds">
             <div className="content">
               <h3 className="has-text-grey-light">{login ? "login" : "create account"}</h3>

@@ -10,7 +10,7 @@ class Home extends React.Component {
               <div className="column">
                 <div className="content">
                   <h3 className="has-text-grey-light">welcome to cashflow.cool</h3>
-                  {/* <LinkList /> */}
+                  <LinkList />
                 </div>
               </div>
             </div>
