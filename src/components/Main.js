@@ -23,19 +23,15 @@ function Main() {
       <Router>
         <FirebaseContext.Provider value={{ user, firebase }}>
           <Nav />
-
           <section className="content-area">
-
-              <Route path="/grocery-list/" component={GroceryList} />
-              <Route path="/recipe-database/" component={RecipeDatabase}/>
-              <Route path="/week-planner/" component={WeekPlanner} />
-              <Route path="/my-recipes/" component={MyRecipes} />
-              <Route path="/" exact component={Home} />
-              <Route path="/login/" component={Login} />
-              <Route path="/forgot/" component={ForgotPassword} />
-            
+            <Route path="/grocery-list/" component={GroceryList} />
+            <Route path="/recipe-database/" component={RecipeDatabase}/>
+            <Route path="/week-planner/" component={WeekPlanner} />
+            <Route path="/my-recipes/" component={MyRecipes} />
+            <Route path="/" exact component={Home} />
+            <Route path="/login/" component={Login} />
+            <Route path="/forgot/" component={ForgotPassword} />
           </section>
-
         </FirebaseContext.Provider>
       </Router>
 

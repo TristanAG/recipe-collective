@@ -23,12 +23,15 @@ function useFormValidation(initialState, validate, authenticate) {
     }
   }, [errors])
 
+
+  //alright so it looks like we are just reducing the number of times we would handleChange and keeping it in the reusable hook
+  //that's pretty cool!
   function handleChange(event) {
     event.persist()
+    console.log(event.target.value)
     setValues(previousValues => ({
       ...previousValues,
       [event.target.name]: event.target.value,
-
     }))
   }
 

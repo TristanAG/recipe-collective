@@ -10,6 +10,9 @@ const INITIAL_STATE = {
   password: ""
 }
 
+//alright so each of these functions comes from the useFormValidation file... it's interesting how this is all working
+//i mean, it seems a bit more complex than im used to... but manageable. i get what's going on... so like, when you
+//execute the function here, it's like the code is in this file, but it actually exists in useFormValidation. pretty neat.
 function Login(props) {
   const {
     handleChange,
