@@ -1,6 +1,7 @@
 import React from 'react'
 import LinkList from './LinkList'
 import CreateLink from './CreateLink'
+import Expenses from './Expenses'
 
 class Home extends React.Component {
   render() {
@@ -10,9 +11,12 @@ class Home extends React.Component {
             <div className="columns">
               <div className="column">
                 <div className="content">
-                  <h3 className="has-text-grey-light">welcome to cashflow.cool</h3>
-                  {/* <LinkList /> */}
                   <CreateLink />
+                </div>
+              </div>
+              <div className="column">
+                <div className="content">
+                  <Expenses />
                 </div>
               </div>
             </div>
